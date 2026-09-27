@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -85.8, "left": 9, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 134.6, "left": 316.8, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 261.6,
+      "left": 193.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 217.2,
+      "left": 205.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 253.85,
+      "left": 248.2,
+      "rotate": 180,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -51.4,
+      "left": 355.2,
+      "attrs": { "color": "black", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -55.2,
+      "left": 441.8,
+      "rotate": 180,
+      "attrs": { "color": "red", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "relay1:VCC", "uno:5V", "green", [ "h0" ] ],
+    [ "relay1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "relay1:IN", "uno:2", "orange", [ "h-19.2", "v-269", "h-52.1" ] ],
+    [ "led1:A", "r1:2", "red", [ "v0" ] ],
+    [ "uno:5V", "relay1:COM", "green", [ "v115.1", "h301.4", "v-56.2" ] ],
+    [ "relay1:NO", "r1:1", "red", [ "h30", "v103.8" ] ],
+    [ "relay1:NO", "bz1:2", "red", [ "h30", "v199.8" ] ],
+    [ "led1:C", "uno:GND.2", "black", [ "h-42.8", "v-172.7" ] ],
+    [ "bz1:1", "uno:GND.2", "black", [ "h-43.2", "v-268.7" ] ],
+    [ "btn1:1.l", "uno:3", "magenta", [ "v-82.6", "h-119.4" ] ],
+    [ "btn2:2.r", "uno:4", "blue", [ "v-96.2", "h-215.3" ] ],
+    [ "btn1:2.r", "uno:GND.1", "black", [ "h9.8", "v-129.4", "h-307.5" ] ],
+    [ "btn2:1.l", "uno:GND.1", "black", [ "h9.6", "v-129.6", "h-393.9" ] ]
+  ],
+  "dependencies": {}
+}
